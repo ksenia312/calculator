@@ -65,7 +65,7 @@ class OperatorCalculatorStrategy extends CalculatorStrategy {
     required List<String> elements,
     required bool resultsState,
   }) {
-    if (elements.isEmpty) return elements;
+    if (elements.isEmpty) return [(AppConstants.zero), element];
 
     final updated = List<String>.from(elements);
     final previous = updated.lastOrNull;

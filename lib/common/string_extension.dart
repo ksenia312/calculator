@@ -28,7 +28,8 @@ extension StringDoubleExtension on String? {
 
   String _addCommasTo(String value) {
     final parts = value.split(AppConstants.point);
-    final reversedBeforeDecimal = parts[0].split('').reversed.join();
+    final beforeDecimal = parts[0].split('')..remove(AppConstants.hyphen);
+    final reversedBeforeDecimal = beforeDecimal.reversed.join();
 
     var formattedReversed = '';
     for (int i = 0; i < reversedBeforeDecimal.length; i++) {
@@ -40,8 +41,12 @@ extension StringDoubleExtension on String? {
 
     final resultBeforeDecimal = formattedReversed.split('').reversed.join();
 
-    return parts.length > 1
+    final result = parts.length > 1
         ? '$resultBeforeDecimal${AppConstants.point}${parts[1]}'
         : resultBeforeDecimal;
+
+    return value.startsWith(AppConstants.hyphen)
+        ? '${AppConstants.hyphen}$result'
+        : result;
   }
 }

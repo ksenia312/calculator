@@ -1,6 +1,7 @@
 abstract class AppConstants {
   static const point = '.';
   static const comma = ',';
+  static const hyphen = '-';
   static const zero = '0';
   static const equals = '=';
   static const clear = 'C';
