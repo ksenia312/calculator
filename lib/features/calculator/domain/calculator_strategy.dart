@@ -10,7 +10,8 @@ abstract class CalculatorStrategy {
 
   List<String> add(
     String element, {
-    required List<String> symbols,
+    required List<String> elements,
+    required bool resultsState,
   });
 }
 
@@ -18,22 +19,29 @@ class NumberCalculatorStrategy extends CalculatorStrategy {
   const NumberCalculatorStrategy();
 
   @override
-  List<String> add(String element, {required List<String> symbols}) {
-    final updated = List<String>.from(symbols);
+  List<String> add(
+    String element, {
+    required List<String> elements,
+    required bool resultsState,
+  }) {
+    final updated = List<String>.from(elements);
     final lastElement = updated.lastOrNull;
 
     if (CalculatorOperator.exist(lastElement)) {
       return updated..add(element);
     } else {
-      final result = '${lastElement ?? ''}$element';
-      if (!result.isInBounds()) {
+      if (resultsState) {
+        return [element];
+      }
+      final number = '${lastElement ?? ''}$element';
+      if (!number.isInBounds()) {
         return updated;
       }
       if (updated.isNotEmpty) {
         updated.removeLast();
       }
 
-      return updated..add(result);
+      return updated..add(number);
     }
   }
 
@@ -52,10 +60,14 @@ class OperatorCalculatorStrategy extends CalculatorStrategy {
   }
 
   @override
-  List<String> add(String element, {required List<String> symbols}) {
-    if (symbols.isEmpty) return symbols;
+  List<String> add(
+    String element, {
+    required List<String> elements,
+    required bool resultsState,
+  }) {
+    if (elements.isEmpty) return elements;
 
-    final updated = List<String>.from(symbols);
+    final updated = List<String>.from(elements);
     final previous = updated.lastOrNull;
     final previousWasAction = matches(previous);
     final previousWasPoint = previous?.endsWith(AppConstants.point) ?? false;
@@ -84,9 +96,10 @@ class PointCalculatorStrategy extends CalculatorStrategy {
   @override
   List<String> add(
     String element, {
-    required List<String> symbols,
+    required List<String> elements,
+    required bool resultsState,
   }) {
-    final updated = List<String>.from(symbols);
+    final updated = List<String>.from(elements);
     final lastElement = updated.lastOrNull;
 
     if (lastElement?.contains(AppConstants.point) ?? false) {
@@ -113,9 +126,10 @@ class PercentCalculatorStrategy extends CalculatorStrategy {
   @override
   List<String> add(
     String element, {
-    required List<String> symbols,
+    required List<String> elements,
+    required bool resultsState,
   }) {
-    final updated = List<String>.from(symbols);
+    final updated = List<String>.from(elements);
     final lastElement = updated.lastOrNull;
 
     if (lastElement == null) {

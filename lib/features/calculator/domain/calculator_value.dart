@@ -28,6 +28,8 @@ class CalculatorValue {
 
   final List<CalculatorStrategy> strategies;
 
+  bool isResult = false;
+
   @override
   bool operator ==(Object other) {
     return other is CalculatorValue &&
@@ -39,31 +41,43 @@ class CalculatorValue {
   int get hashCode => _elements.hashCode * _result.hashCode;
 
   void add(String element) {
+    final wasResult = isResult;
+    if (isResult) {
+      submit();
+      isResult = false;
+    }
     for (final strategy in strategies) {
       if (strategy.matches(element)) {
-        _elements.value = strategy.add(element, symbols: _elements.value);
+        _elements.value = strategy.add(
+          element,
+          elements: _elements.value,
+          resultsState: wasResult,
+        );
         return;
       }
     }
   }
 
   void clear() {
+    isResult = false;
     _elements.value = [];
   }
 
   void removeLast() {
-    final lastValue = _elements.value.lastOrNull;
-    if (lastValue != null) {
-      final replacement = lastValue.length > 1
-          ? lastValue.substring(0, lastValue.length - 1)
-          : null;
-      final newValue = [..._elements.value]..removeLast();
-      if (replacement != null) {
-        newValue.add(
-          lastValue.substring(0, lastValue.length - 1),
-        );
+    if (!isResult) {
+      final lastValue = _elements.value.lastOrNull;
+      if (lastValue != null) {
+        final replacement = lastValue.length > 1
+            ? lastValue.substring(0, lastValue.length - 1)
+            : null;
+        final newValue = [..._elements.value]..removeLast();
+        if (replacement != null) {
+          newValue.add(
+            lastValue.substring(0, lastValue.length - 1),
+          );
+        }
+        _elements.value = newValue;
       }
-      _elements.value = newValue;
     }
   }
 

@@ -14,7 +14,6 @@ class CalculatorWidget extends StatefulWidget {
 
 class _CalculatorWidgetState extends State<CalculatorWidget> {
   final _value = CalculatorValue.initialized();
-  bool isResult = false;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
                       Flexible(
                         child: AnimatedDefaultTextStyle(
                           duration: const Duration(milliseconds: 100),
-                          style: isResult
+                          style: calculatorValue.isResult
                               ? theme.titleMedium!
                               : theme.headlineMedium!,
                           child: Wrap(
@@ -63,7 +62,7 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
                       const SizedBox(height: 4),
                       AnimatedDefaultTextStyle(
                         duration: const Duration(milliseconds: 100),
-                        style: isResult
+                        style: calculatorValue.isResult
                             ? theme.headlineLarge!
                             : theme.titleMedium!,
                         child: Text(
@@ -112,31 +111,24 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
 
   void _onChanged(String element) {
     setState(() {
-      if (isResult) {
-        _value.submit();
-        isResult = false;
-      }
       _value.add(element);
     });
   }
 
   void _onRemoveLast() {
-    if (!isResult) {
-      setState(() {
-        _value.removeLast();
-      });
-    }
+    setState(() {
+      _value.removeLast();
+    });
   }
 
   void _onSubmit() {
     setState(() {
-      isResult = true;
+      _value.isResult = true;
     });
   }
 
   void _onClear() {
     setState(() {
-      isResult = false;
       _value.clear();
     });
   }
