@@ -28,6 +28,7 @@ class CalculatorData extends InheritedWidget {
   final VoidCallback onClear;
   final VoidCallback onRemoveLast;
 
+  bool get isResult => value.isResult;
 
   @override
   bool updateShouldNotify(covariant CalculatorData oldWidget) {

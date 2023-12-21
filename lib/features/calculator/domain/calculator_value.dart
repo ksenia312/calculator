@@ -33,7 +33,7 @@ class CalculatorValue {
   @override
   bool operator ==(Object other) {
     return other is CalculatorValue &&
-        (other._elements == _elements) &&
+        (other._elements.value == _elements.value) &&
         (other._result == _result);
   }
 
@@ -41,7 +41,6 @@ class CalculatorValue {
   int get hashCode => _elements.hashCode * _result.hashCode;
 
   void add(String element) {
-    print(_elements.value);
     final wasResult = isResult;
     if (isResult) {
       submit();

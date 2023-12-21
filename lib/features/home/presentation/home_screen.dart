@@ -6,12 +6,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Theme.of(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Calculator'),
       ),
-      body:CalculatorWidget(),
+      body: const CalculatorWidget(),
     );
   }
 }
