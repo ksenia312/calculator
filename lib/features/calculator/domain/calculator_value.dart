@@ -18,8 +18,8 @@ class CalculatorValue {
       PercentCalculatorStrategy(),
     ],
   }) {
-    _elements = ValueNotifier(initialValue ?? [])
-      ..addListener(_elementsListener);
+    _elements = ValueNotifier(initialValue ?? []);
+    addListener(_elementsListener);
     _result = CalculatorResult();
   }
 
@@ -41,6 +41,7 @@ class CalculatorValue {
   int get hashCode => _elements.hashCode * _result.hashCode;
 
   void add(String element) {
+    print(_elements.value);
     final wasResult = isResult;
     if (isResult) {
       submit();
@@ -89,6 +90,10 @@ class CalculatorValue {
         _elements.value = [_result.value!];
       }
     }
+  }
+
+  void addListener(VoidCallback listener) {
+    _elements.addListener(listener);
   }
 
   void _elementsListener() => _result.updateWith(this);

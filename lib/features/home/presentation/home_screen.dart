@@ -11,13 +11,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Calculator'),
       ),
-      body: const CustomScrollView(
-        slivers: [
-          SliverFillRemaining(
-            child: CalculatorWidget(),
-          ),
-        ],
-      ),
+      body:CalculatorWidget(),
     );
   }
 }
