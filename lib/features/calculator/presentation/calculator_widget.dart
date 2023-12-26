@@ -45,26 +45,23 @@ class _CalculatorBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final calculatorValue = CalculatorData.of(context).value;
+    final screenSize = MediaQuery.sizeOf(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
         Flexible(
           child: Align(
             alignment: Alignment.bottomRight,
-            child: Builder(
-              builder: (context) {
-                final calculatorValue = CalculatorData.of(context).value;
-                return ListView(
-                  controller: controller,
-                  dragStartBehavior: DragStartBehavior.down,
-                  shrinkWrap: true,
-                  children: [
-                    CalculatorWorkingField(calculatorValue),
-                    const SizedBox(height: 4),
-                    CalculatorResultField(calculatorValue),
-                  ],
-                );
-              },
+            child: ListView(
+              controller: controller,
+              dragStartBehavior: DragStartBehavior.down,
+              shrinkWrap: true,
+              children: [
+                CalculatorWorkingField(calculatorValue),
+                const SizedBox(height: 4),
+                CalculatorResultField(calculatorValue),
+              ],
             ),
           ),
         ),
@@ -76,6 +73,7 @@ class _CalculatorBody extends StatelessWidget {
             crossAxisCount: 4,
             crossAxisSpacing: 12,
             physics: const NeverScrollableScrollPhysics(),
+            childAspectRatio: screenSize.width * 2.5 / screenSize.height,
             mainAxisSpacing: 12,
             children: [
               CalculatorButtons.cancel,
