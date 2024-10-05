@@ -26,5 +26,3 @@ for handling incoming characters. There are 4 separate strategies for processing
 
 <b>Web</b><br/>
 <img src=".github/web.gif" width="500">
-
-
