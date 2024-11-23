@@ -17,12 +17,12 @@ for handling incoming characters. There are 4 separate strategies for processing
 
 ### IOS
 
-![ios](.github/ios.gif)
+![ios](https://github.com/user-attachments/assets/d84a78b9-65fc-4232-984a-872ced164ab5)
 
 
 ### Web
 
-![web](.github/web.gif)
+![web](https://github.com/user-attachments/assets/f538f849-5df0-41ef-92bd-1c49237539de)
 
 
 
