@@ -13,16 +13,16 @@ for handling incoming characters. There are 4 separate strategies for processing
 
 ### Android
 
-![android](https://github.com/user-attachments/assets/b583b4f7-6fe3-4698-bb01-a8709122f0e9)
+![android](https://github.com/user-attachments/assets/2ddc2fb8-86e0-4918-8811-f0f9c698068e)
 
 ### IOS
 
-![ios](https://github.com/user-attachments/assets/d84a78b9-65fc-4232-984a-872ced164ab5)
+![ios](https://github.com/user-attachments/assets/3ce926c4-b5fd-4d21-bbb0-044e3ef09300)
 
 
 ### Web
 
-![web](https://github.com/user-attachments/assets/f538f849-5df0-41ef-92bd-1c49237539de)
+![web](https://github.com/user-attachments/assets/916a6733-1487-42db-8a9e-453fe74f441e)
 
 
 
