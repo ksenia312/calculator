@@ -13,7 +13,7 @@ for handling incoming characters. There are 4 separate strategies for processing
 
 ### Android
 
-![android](.github/android.gif)
+![android](https://github.com/user-attachments/assets/b583b4f7-6fe3-4698-bb01-a8709122f0e9)
 
 ### IOS
 
