@@ -11,20 +11,18 @@ for handling incoming characters. There are 4 separate strategies for processing
 
 ## Demo
 
-<section style="display: inline-block">
-<b>Android</b> <br/>
+### Android
 
-<img src=".github/android.gif" width="300">
-</section>
+![android](.github/android.gif)
 
-<section style="display: inline-block">
-<b>IOS</b> <br/>
-<img src=".github/ios.gif" width="300">
-</section>
+### IOS
 
-<br/>
+![ios](.github/ios.gif)
 
-<b>Web</b><br/>
-<img src=".github/web.gif" width="500">
+
+### Web
+
+![web](.github/web.gif)
+
 
 
