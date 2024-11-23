@@ -22,7 +22,7 @@ for handling incoming characters. There are 4 separate strategies for processing
 
 ### Web
 
-![web](https://github.com/user-attachments/assets/916a6733-1487-42db-8a9e-453fe74f441e)
+![web](https://github.com/user-attachments/assets/905f9ee1-1a33-44cc-ad2d-63b79ebd8d1c)
 
 
 
